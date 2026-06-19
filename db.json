@@ -1,0 +1,48 @@
+{
+  "deals": [
+    { "id": 1, "title": "John Doe", "value": 5000, "stage": "starts_conversation" },
+    { "id": 2, "title": "Jane Smith", "value": 8200, "stage": "negotiation" },
+    { "id": 3, "title": "Acme Corp", "value": 15000, "stage": "starts_conversation" }
+  ],
+  "ibs": [
+    { "id": 1, "username": "rahul_m", "email": "rahul@gmail.com", "firstName": "Rahul", "lastName": "Mehrotra", "state": "active" },
+    { "id": 2, "username": "ananta_p", "email": "ap@gmail.com", "firstName": "Ananta", "lastName": "Pramanik", "state": "inactive" },
+    { "id": 3, "username": "ayush_a", "email": "ayush@gmail.com", "firstName": "Ayush", "lastName": "Agrawal", "state": "active" },
+    { "id": 4, "username": "panther_c", "email": "ceo@panthercapitals.com", "firstName": "Panther", "lastName": "Capitals", "state": "active" },
+    { "id": 5, "username": "riya_s", "email": "riya.s@outlook.com", "firstName": "Riya", "lastName": "Sharma", "state": "inactive" },
+    { "id": 6, "username": "dev_k", "email": "dev.k@gmail.com", "firstName": "Dev", "lastName": "Kapoor", "state": "active" },
+    { "id": 7, "username": "meera_j", "email": "meera.j@gmail.com", "firstName": "Meera", "lastName": "Joshi", "state": "active" },
+    { "id": 8, "username": "arjun_b", "email": "arjun.b@outlook.com", "firstName": "Arjun", "lastName": "Bose", "state": "inactive" },
+    { "id": 9, "username": "sneha_t", "email": "sneha.t@gmail.com", "firstName": "Sneha", "lastName": "Tiwari", "state": "active" },
+    { "id": 10, "username": "kabir_r", "email": "kabir.r@gmail.com", "firstName": "Kabir", "lastName": "Rao", "state": "active" },
+    { "id": 11, "username": "isha_m", "email": "isha.m@gmail.com", "firstName": "Isha", "lastName": "Malhotra", "state": "active" },
+    { "id": 12, "username": "nikhil_d", "email": "nikhil.d@gmail.com", "firstName": "Nikhil", "lastName": "Desai", "state": "inactive" },
+    { "id": 13, "username": "pooja_v", "email": "pooja.v@outlook.com", "firstName": "Pooja", "lastName": "Verma", "state": "active" },
+    { "id": 14, "username": "rohit_g", "email": "rohit.g@gmail.com", "firstName": "Rohit", "lastName": "Gupta", "state": "active" },
+    { "id": 15, "username": "priya_n", "email": "priya.n@gmail.com", "firstName": "Priya", "lastName": "Nair", "state": "inactive" },
+    { "id": 16, "username": "varun_k", "email": "varun.k@gmail.com", "firstName": "Varun", "lastName": "Kumar", "state": "active" },
+    { "id": 17, "username": "divya_s", "email": "divya.s@outlook.com", "firstName": "Divya", "lastName": "Singh", "state": "active" },
+    { "id": 18, "username": "amit_c", "email": "amit.c@gmail.com", "firstName": "Amit", "lastName": "Chandra", "state": "inactive" },
+    { "id": 19, "username": "nisha_p", "email": "nisha.p@gmail.com", "firstName": "Nisha", "lastName": "Pillai", "state": "active" },
+    { "id": 20, "username": "kartik_m", "email": "kartik.m@gmail.com", "firstName": "Kartik", "lastName": "Mishra", "state": "active" },
+    { "id": 21, "username": "lakshmi_r", "email": "lakshmi.r@gmail.com", "firstName": "Lakshmi", "lastName": "Reddy", "state": "active" },
+    { "id": 22, "username": "sanjay_b", "email": "sanjay.b@outlook.com", "firstName": "Sanjay", "lastName": "Bajaj", "state": "inactive" },
+    { "id": 23, "username": "tanya_k", "email": "tanya.k@gmail.com", "firstName": "Tanya", "lastName": "Khanna", "state": "active" },
+    { "id": 24, "username": "vijay_p", "email": "vijay.p@gmail.com", "firstName": "Vijay", "lastName": "Patel", "state": "active" },
+    { "id": 25, "username": "ankita_s", "email": "ankita.s@gmail.com", "firstName": "Ankita", "lastName": "Shah", "state": "inactive" },
+    { "id": 26, "username": "deepak_m", "email": "deepak.m@gmail.com", "firstName": "Deepak", "lastName": "Mehta", "state": "active" },
+    { "id": 27, "username": "geeta_n", "email": "geeta.n@outlook.com", "firstName": "Geeta", "lastName": "Naik", "state": "active" },
+    { "id": 28, "username": "harish_t", "email": "harish.t@gmail.com", "firstName": "Harish", "lastName": "Trivedi", "state": "inactive" },
+    { "id": 29, "username": "indira_c", "email": "indira.c@gmail.com", "firstName": "Indira", "lastName": "Chakraborty", "state": "active" },
+    { "id": 30, "username": "jatin_v", "email": "jatin.v@gmail.com", "firstName": "Jatin", "lastName": "Vyas", "state": "active" }
+  ],
+  "metrics": {
+    "deposits": { "amount": 482299.11, "net": 72984.19, "transactions": 377 },
+    "nonFtd": { "amount": 197610.88, "transactions": 174 },
+    "ftd": { "amount": 284688.23, "transactions": 203 },
+    "pendingDeposits": { "amount": 0.00, "transactions": 0 },
+    "withdrawals": { "amount": 124626.69, "transactions": 248 },
+    "pendingWithdrawals": { "amount": 0.00, "transactions": 0 },
+    "activeTraders": 267
+  }
+}
