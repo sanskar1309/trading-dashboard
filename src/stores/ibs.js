@@ -19,7 +19,7 @@ export const useIBsStore = defineStore('ibs', {
       direction: null, // 'asc' | 'desc' | null
     },
     pagination: {
-      limit: 25,
+      limit: 10,
       offset: 0,
     },
   }),
@@ -53,8 +53,16 @@ export const useIBsStore = defineStore('ibs', {
 
       try {
         const res = await getIBs(params)
-        this.ibs = res.data.results
-        this.total = res.data.count
+        const data = res.data
+        // Prefer X-Total-Count header (set by json-server when _limit is used)
+        const headerTotal = parseInt(res.headers['x-total-count'])
+        if (Array.isArray(data)) {
+          this.ibs = data
+          this.total = isNaN(headerTotal) ? data.length : headerTotal
+        } else {
+          this.ibs = data.results ?? []
+          this.total = isNaN(headerTotal) ? (data.count ?? 0) : headerTotal
+        }
       } catch (e) {
         this.error = e.message
       } finally {

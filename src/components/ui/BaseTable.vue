@@ -6,7 +6,7 @@ import SkeletonLoader from './SkeletonLoader.vue'
 
 const props = defineProps({
   columns: { type: Array, required: true }, // [{ key, label, sortable, filterable }]
-  rows: { type: Array, default: () => [] },
+  rows: { type: Array, default: () => [], validator: (v) => Array.isArray(v) },
   sortField: { type: String, default: null },
   sortDirection: { type: String, default: null }, // 'asc' | 'desc' | null
   loading: Boolean,

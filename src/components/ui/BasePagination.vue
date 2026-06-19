@@ -31,6 +31,7 @@ const btnClass = 'p-1.5 rounded border border-slate-200 dark:border-slate-700 te
         @change="emit('limit-change', Number($event.target.value))"
         class="px-2 py-1 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm focus:outline-none focus:ring-1 focus:ring-slate-400"
       >
+        <option value="10">10</option>
         <option value="25">25</option>
         <option value="50">50</option>
         <option value="100">100</option>

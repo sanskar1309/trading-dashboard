@@ -1,9 +1,12 @@
 // Custom json-server middleware
-// Translates Django-style params into json-server params,
-// and wraps /ibs responses as { count, results }.
+// Translates Django-style params into json-server params.
+// Total count is read from X-Total-Count header on the frontend.
 
 module.exports = (req, res, next) => {
   const q = req.query
+
+  // Expose X-Total-Count to the browser (required for cross-origin reads)
+  res.header('Access-Control-Expose-Headers', 'X-Total-Count')
 
   // ordering=field → _sort=field&_order=asc
   // ordering=-field → _sort=field&_order=desc
@@ -30,16 +33,6 @@ module.exports = (req, res, next) => {
   if (q.offset !== undefined) {
     q._start = q.offset
     delete q.offset
-  }
-
-  // Wrap /ibs list responses as { count, results }
-  if (req.path === '/ibs') {
-    const originalJson = res.json.bind(res)
-    res.json = (data) => {
-      const total = res.getHeader('X-Total-Count')
-      const count = total !== undefined ? parseInt(total) : (Array.isArray(data) ? data.length : 0)
-      originalJson({ count, results: Array.isArray(data) ? data : [] })
-    }
   }
 
   next()
