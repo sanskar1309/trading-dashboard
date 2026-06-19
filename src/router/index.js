@@ -8,7 +8,7 @@ const router = createRouter({
       path: '/workspace',
       component: () => import('../views/WorkspaceView.vue'),
       children: [
-        { path: '', redirect: 'summary' },
+        { path: '', redirect: '/workspace/summary' },
         { path: 'summary', component: () => import('../views/WorkspaceSummary.vue') },
         { path: 'deals', component: () => import('../views/DealsView.vue') },
       ],

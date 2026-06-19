@@ -70,6 +70,7 @@ const submitDeal = async () => {
     stage: 'starts_conversation',
   })
   showCreate.value = false
+  await dealsStore.fetchDeals()
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────
