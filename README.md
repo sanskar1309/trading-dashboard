@@ -9,7 +9,7 @@ A lightweight CRM dashboard built with Vue 3.
 - Vue Router
 - Tailwind CSS
 - Axios
-- json-server (mock backend)
+- MSW (Mock Service Worker)
 - vue-draggable-plus
 - lucide-vue-next
 
@@ -17,21 +17,14 @@ A lightweight CRM dashboard built with Vue 3.
 
 ```bash
 npm install
-npm run dev:all
+npm run dev
 ```
 
-This starts both the Vite dev server and the mock API concurrently.
-
-- App: http://localhost:5173
-- API: http://localhost:3001
+App runs at http://localhost:5173. No separate server needed — MSW intercepts all API calls in the browser.
 
 ## Mock API
 
-Data is served by json-server from `db.json`.
-
-```bash
-npm run server
-```
+API requests are handled by Mock Service Worker (MSW). All interactions trigger real HTTP requests visible in the browser Network tab.
 
 Endpoints:
 
@@ -43,13 +36,18 @@ Endpoints:
 | GET | /ibs | List IBs (supports limit, offset, ordering, field__contains) |
 | GET | /metrics | Dashboard metrics |
 
-All requests are real HTTP calls visible in the browser Network tab.
+Mock data is defined in `db.json`. Created deals persist across page refreshes via localStorage.
+
+## Live Demo
+
+https://trading-dashboard-five-wine.vercel.app
 
 ## Folder Structure
 
 ```
 src/
   api/          # Axios instance + API modules
+  mocks/        # MSW handlers and browser setup
   components/
     layout/     # AppSidebar, AppTopBar
     ui/         # BaseTable, BasePagination, BaseModal, SkeletonLoader
