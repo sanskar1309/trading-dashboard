@@ -1,11 +1,7 @@
 // Custom json-server middleware
-// Translates Django-style params into json-server params.
-// Total count is read from X-Total-Count header on the frontend.
-
 module.exports = (req, res, next) => {
   const q = req.query
 
-  // Expose X-Total-Count to the browser (required for cross-origin reads)
   res.header('Access-Control-Expose-Headers', 'X-Total-Count')
 
   // ordering=field → _sort=field&_order=asc
