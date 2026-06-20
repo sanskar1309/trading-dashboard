@@ -1,8 +1,20 @@
 import { http, HttpResponse } from 'msw'
 import db from '../../db.json'
 
-// In-memory state so mutations persist during a session
-let deals = [...db.deals]
+const DEALS_KEY = 'tradedesk-deals'
+
+// Load from localStorage
+const loadDeals = () => {
+  try {
+    const stored = localStorage.getItem(DEALS_KEY)
+    return stored ? JSON.parse(stored) : [...db.deals]
+  } catch {
+    return [...db.deals]
+  }
+}
+const saveDeals = (deals) => localStorage.setItem(DEALS_KEY, JSON.stringify(deals))
+
+let deals = loadDeals()
 const ibs = [...db.ibs]
 
 export const handlers = [
@@ -16,6 +28,7 @@ export const handlers = [
     const body = await request.json()
     const deal = { ...body, id: Date.now() }
     deals.push(deal)
+    saveDeals(deals)
     return HttpResponse.json(deal, { status: 201 })
   }),
 
@@ -25,6 +38,7 @@ export const handlers = [
     const index = deals.findIndex((d) => d.id === id)
     if (index === -1) return HttpResponse.json({ error: 'Not found' }, { status: 404 })
     deals[index] = { ...deals[index], ...body }
+    saveDeals(deals)
     return HttpResponse.json(deals[index])
   }),
 
