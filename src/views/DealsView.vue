@@ -29,10 +29,14 @@ watch(
 const colTotal = (stage) =>
   colDeals.value[stage].reduce((sum, d) => sum + d.value, 0)
 
-// Called when an item is dropped into a column
-const onChange = (stage, event) => {
-  if (event.added) {
-    dealsStore.updateDealStage(event.added.element.id, stage)
+// scan both columns for deals whose stage doesn't match their column
+const onDragEnd = () => {
+  for (const [stage, dealsInCol] of Object.entries(colDeals.value)) {
+    for (const deal of dealsInCol) {
+      if (deal.stage !== stage) {
+        dealsStore.updateDealStage(deal.id, stage)
+      }
+    }
   }
 }
 
@@ -153,7 +157,7 @@ const inputClass =
           v-model="colDeals[col.stage]"
           group="deals"
           item-key="id"
-          @change="onChange(col.stage, $event)"
+          @end="onDragEnd"
           class="min-h-[200px] space-y-3 rounded-lg p-2 bg-slate-100/60 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50"
         >
           <!-- Deal card -->
